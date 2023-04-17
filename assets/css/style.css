@@ -9,7 +9,7 @@
     flex-direction: column;
     min-height: 100vh;
     justify-content: flex-start;
-    background: linear-gradient(0deg, rgba(19,41,61,1) 0%, rgba(237,245,249,1) 63%);
+    background: cornflowerblue;
   }
   
   .reset-button {
@@ -40,12 +40,13 @@
     transition-property: background-color;
     transition-timing-function: linear;
     margin-top: 0.6em;
+    align-items: center;
   }
   
   header {
     padding: 40px;
     text-align: center;
-    background: #13293d;
+    background: #3580c6;
     color: #000000;
     
     border-bottom:30px #879274;
@@ -85,9 +86,9 @@
     padding: 20px;
   }
   
-  .word-blanks {
+  .card-guess {
     line-height: 360px;
-  }
+}
   
   .large-font {
     font-size: 3.5em;
@@ -111,7 +112,7 @@
       flex-direction: column;
     }
   
-    .word-guess,
+    .card-guess,
     .results {
       width: 90vw;
     }

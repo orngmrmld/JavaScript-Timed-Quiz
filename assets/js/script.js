@@ -7,8 +7,9 @@ var highScoreContainer = document.getElementById("high-score-container");
 var viewHighScoreList = document.getElementById("high-score-list");
 var correct = document.getElementById("correct");
 var incorrect = document.getElementById("incorrect");
-
-
+var startButton = document.querySelector(".start-button");
+var returnButton = document.querySelector("#go-back");
+var clearButton = document.querySelector("#clear-high-scores");
 
 // add question bank to replace in heaader every new question
 
@@ -68,7 +69,6 @@ var questions = [
 
 
 //var timerElement = document.querySelector(".timer-count");
-// var startButton = document.querySelector(".start-button");
 // var correctAnswers = [];
 // var incorrectAnswers = [];
 // var highScores = [];

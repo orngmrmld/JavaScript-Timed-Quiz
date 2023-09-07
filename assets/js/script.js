@@ -1,13 +1,14 @@
+var startContainer = document.getElementsById("start-container");
+var questionContainer = document.getElementById("question-container");
+var finishContainer = document.getElementById("finish-container");
+var scoreBanner = document.getElementById("score-banner");
+var formInitials = document.getElementsById("initials-form");
+var highScoreContainer = document.getElementById("high-score-container");
+var viewHighScoreList = document.getElementById("high-score-list");
+var correct = document.getElementById("correct");
+var incorrect = document.getElementById("incorrect");
 
-var timerElement = document.querySelector(".timer-count");
-var startButton = document.querySelector(".start-button");
-var correctAnswers = [];
-var incorrectAnswers = [];
-var highScores = [];
-var timer;
-var timerCount;
-var correctcounter = 0;
-var incorrectcounter = 0;
+
 
 // add question bank to replace in heaader every new question
 
@@ -66,7 +67,15 @@ var questions = [
 
 
 
-
+//var timerElement = document.querySelector(".timer-count");
+// var startButton = document.querySelector(".start-button");
+// var correctAnswers = [];
+// var incorrectAnswers = [];
+// var highScores = [];
+// var timer;
+// var timerCount;
+// var correctcounter = 0;
+// var incorrectcounter = 0;
 
 // function init() {
 

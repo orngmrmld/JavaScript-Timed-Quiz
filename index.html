@@ -30,7 +30,7 @@
 
             </div>
 
-            <div id= "finish-container" class = "hide">
+            <div id="finish-container" class ="hide">
               <div class = "container finish">
                 <div id = score-banner>
                   <h1> Finished! </h1>
@@ -56,8 +56,25 @@
               </div>
             
               </div>
-            </div>
+              <div id="high-score-container" class="hide">
+                <div class="high-scores container">
+                  <h1 class="high-score">High Scores</h1>
+                  <ol id="high-score-list" class="score-list"></ol>
+              <div>
+                  <button class="btn" id="go-back">Go back</button>
+                  <button class="btn" id="clear-high-scores">Clear high scores</button>
+              </div>
+              </div>
+            
           </section>
+
+          <div class= "hide" id = "correct">
+            <h2> Correct </h2>
+          </div>
+          <div class= "hide" id = "incorrect">
+            <h2> Incorrect </h2>
+          </div>
+
         </main>
         <script src="assets/js/script.js"></script> 
 </body>

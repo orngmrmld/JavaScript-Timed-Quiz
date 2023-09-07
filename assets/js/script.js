@@ -17,6 +17,9 @@ var timer;
 var timerCount;
 var mixedQuestions;
 var questionIndex= 0;
+var score = 0;
+var timeleft;
+var gameover;
 
 var questions = [
 
@@ -44,27 +47,26 @@ var questions = [
   ];
 
 // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
-function startTimer() {
-  // Sets timer
-  timer = setInterval(function() {
-    timerCount--;
-    timerElement.textContent = timerCount;
-    if (timerCount >= 0) {
-      // Tests if win condition is met
-      if (isWin && timerCount > 0) {
-        // Clears interval and stops timer
-        clearInterval(timer);
-        winGame();
-      }
-    }
-    // Tests if time has run out
-    if (timerCount === 0) {
-      // Clears interval
-      clearInterval(timer);
-      loseGame();
-    }
-  }, 1000);
-};
+function setTime() {
+  timeleft = 100;
+
+var timercheck = setInterval(function() {
+  timerElement.innerText = timeleft;
+  timeleft--
+
+  if (gameover) {
+      clearInterval(timercheck)
+  }
+ 
+  if (timeleft < 0) {
+      showScore()
+      timerElement.innerText = 0
+      clearInterval(timercheck)
+  }
+
+  }, 1000)
+}
+
 
 //Display a question from the array
 function displayQuestion(index) {
@@ -99,8 +101,22 @@ function answerCheck(event){
   var selectedAns = event.target;
   if(mixedQuestions[questionIndex].a === selectedAns.innerText){
     //correctAns()
-    
+    score += 5;
+  } else {
+    //wrongAns()
+    score -= 1; 
+    timeleft -= 3;
+  };
+  questionIndex++;
+  if(mixedQuestions.length>questionIndex +1 ){
+    createQuestions();
+  } 
+  else {
+    gameover = "true";
+    //showscore
   }
+
+
 } 
 
 

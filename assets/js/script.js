@@ -3,7 +3,7 @@ var timerElement = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
 var correctAnswers = [];
 var incorrectAnswers = [];
-
+var highScores = [];
 var timer;
 var timerCount;
 var correctcounter = 0;
@@ -66,7 +66,7 @@ var questions = [
 
 
 
-  
+
 
 // function init() {
 

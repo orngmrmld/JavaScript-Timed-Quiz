@@ -1,8 +1,8 @@
-var startContainer = document.getElementsById("start-container");
+var startContainer = document.getElementById("start-container");
 var questionContainer = document.getElementById("question-container");
 var finishContainer = document.getElementById("finish-container");
 var scoreBanner = document.getElementById("score-banner");
-var formInitials = document.getElementsById("initials-form");
+var formInitials = document.getElementById("initials-form");
 var highScoreContainer = document.getElementById("high-score-container");
 var viewHighScoreList = document.getElementById("high-score-list");
 var correct = document.getElementById("correct");
@@ -46,6 +46,31 @@ var questions = [
     },
   ];
 
+//render the start page
+function renderStart(){
+  highScoreContainer.classList.add("hide");
+  highScoreContainer.classList.remove("show");
+  startContainer.classList.remove("hide");
+  startContainer.classList.add("show");
+  scoreBanner.removeChild(scoreBanner.lastChild);
+  questionIndex = 0;
+  gameover = "";
+  timerElement.textContent = 0;
+  score = 0;
+
+}
+
+function startGame(){
+  startContainer.classList.add("hide");
+  startContainer.classList.remove("show");
+  questionContainer.classList.remove("hide");
+  questionContainer.classList.add("show");
+  mixedQuestions = questions.sort(() => Math.random() - 0.5)
+  setTime();
+  createQuestions();
+
+}
+
 // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
 function setTime() {
   timeleft = 100;
@@ -69,20 +94,21 @@ var timercheck = setInterval(function() {
 
 
 //Display a question from the array
-function displayQuestion(index) {
+var  displayQuestion = function(index) {
   questionElement.innerText = index.q;
   for (var i = 0; i <index.choices.length; i++){
-    var answerBtn = document.createElement('button')
-    answerBtn.innerText = index.choices[i].choice;
-    answerBtn.classList.add('btn');
-    answerBtn.classList.add('answerbtn');
-    answerBtn.addEventListener("click", answerCheck);
-    answerBtn.appendChild(answerBtn);
+    var ansButton = document.createElement('button');
+    console.log(ansButton);
+    ansButton.innerText = index.choices[i].choice;
+    ansButton.classList.add('btn');
+    ansButton.classList.add('answerbtn');
+    ansButton.addEventListener("click", answerCheck);
+    ansButton.appendChild(answerButtons);
 
   }
 };
 
-//reset answers by removing buttons
+//reset answers by removing buttons 
 function resetAnswers(){
   while(answerButtons.firstChild){
     answerButtons.removeChild(answerButtons.firstChild());
@@ -100,10 +126,10 @@ function createQuestions(){
 function answerCheck(event){
   var selectedAns = event.target;
   if(mixedQuestions[questionIndex].a === selectedAns.innerText){
-    //correctAns()
+    correctAns();
     score += 5;
   } else {
-    //wrongAns()
+    incorrectAns();
     score -= 1; 
     timeleft -= 3;
   };
@@ -119,11 +145,28 @@ function answerCheck(event){
 
 } 
 
+// display if correct or incorrect on screen
+function correctAns(){
+  if(correct.className = "hide"){
+    correct.classList.remove("hide")
+    correct.classList.add("show")
+    incorrect.classList.remove("banner")
+    incorrect.classList.add("hide")
+  }
+}
 
+function incorrectAns(){
+  if(incorrect.className = "hide"){
+    incorrect.classList.remove("hide")
+    incorrect.classList.add("show")
+    correct.classList.remove("banner")
+    correct.classList.add("hide")
+  }
+}
 
-// display if correct or incorrect
+startButton.addEventListener("click", startGame);
 
-
+// show score
 
 
 

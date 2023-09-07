@@ -1,83 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
-    <title>Quiz Time!</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+  <title>Quiz Time!</title>
 </head>
+
 <body>
-    <body>
 
-    
-        <main>
-          <section>
-            
-            <div id = "start-container" class="show">
-              <div class = "first container">
-                <h1> Welcome to the Coding Quiz </h1>
-                <p> Choose the correct answer within the time limit and score big. Be sure to choose wisely as the wrong choice penalizes you.</p>
-                <button class="start-button">Start</button>
 
-              </div>
+  <main>
+    <section>
 
-            </div>
+      <div id="start-container" class="show">
+        <div class="first container">
+          <h1> Welcome to the Coding Quiz </h1>
+          <p> Choose the correct answer within the time limit and score big. Be sure to choose wisely as the wrong
+            choice penalizes you.</p>
+          <button class="start-button">Start</button>
+        </div>
+      </div>
 
-            <div id= "questions-container" class = "hide">
-              <div class = "container questions">
-                <div id = "question"></div>
-                <div id = "answer-buttons" class = "btn-grid"></div>
-              </div>
+      <div id="question-container" class="hide">
+        <div class="container questions">
+          <div id="question"></div>
+          <div id="answer-buttons" class="btn-grid"></div>
+        </div>
+      </div>
 
-            </div>
-
-            <div id="finish-container" class ="hide">
-              <div class = "container finish">
-                <div id = score-banner>
-                  <h1> Finished! </h1>
-                </div>
-                <form id="initials-form" class = "initials">
-                  <p>Enter Your Initials:
-                    <input type = "text" name = "initials" id = "initials" class = "text-input" /> 
-                    <button class = "btn startend" id = "submit-score" type = "submit"> Submit </button>
-                  </p>
-                </form>
-              </div>
-
-            </div>
-
-          </section>
-    
-          <section>
-    
-              <div class= "card timer">
-                <div class = "timer-text">
-                <div class="large-font timer-count">0</div>
-                <h3>seconds remaining</h3>
-              </div>
-            
-              </div>
-              <div id="high-score-container" class="hide">
-                <div class="high-scores container">
-                  <h1 class="high-score">High Scores</h1>
-                  <ol id="high-score-list" class="score-list"></ol>
-              <div>
-                  <button class="btn" id="go-back">Go back</button>
-                  <button class="btn" id="clear-high-scores">Clear high scores</button>
-              </div>
-              </div>
-            
-          </section>
-
-          <div class= "hide" id = "correct">
-            <h2> Correct </h2>
+      <div id="finish-container" class="hide">
+        <div class="container finish">
+          <div id=score-banner>
+            <h1> Finished! </h1>
           </div>
-          <div class= "hide" id = "incorrect">
-            <h2> Incorrect </h2>
-          </div>
+          <form id="initials-form" class="initials">
+            <p>Enter Your Initials:
+              <input type="text" name="initials" id="initials" class="text-input" />
+              <button class="btn startend" id="submit-score" type="submit"> Submit </button>
+            </p>
+          </form>
+        </div>
+      </div>
 
-        </main>
-        <script src="assets/js/script.js"></script> 
+    </section>
+
+    <section>
+
+      <div class="card timer">
+        <div class="timer-text">
+          <div class="large-font timer-count">0</div>
+          <h3>seconds remaining</h3>
+        </div>
+
+      </div>
+      <div id="high-score-container" class="hide">
+        <div class="high-scores container">
+          <h1 class="high-score">High Scores</h1>
+          <ol id="high-score-list" class="score-list"></ol>
+          <div>
+            <button class="btn" id="go-back">Go back</button>
+            <button class="btn" id="clear-high-scores">Clear high scores</button>
+          </div>
+        </div>
+
+    </section>
+
+    <div class="hide" id="correct">
+      <h2> Correct </h2>
+    </div>
+    <div class="hide" id="incorrect">
+      <h2> Incorrect </h2>
+    </div>
+
+  </main>
+  <script src="assets/js/script.js"></script>
 </body>
+
 </html>

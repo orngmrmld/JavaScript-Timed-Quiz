@@ -1,7 +1,15 @@
 * {
     box-sizing: border-box;
   }
+  h1 {
+    color: black;
+    
+  }
   
+  p {
+    
+    font-size: 20px;
+  }
   body {
     font-family: Arial;
     margin: 0;
@@ -68,6 +76,7 @@
   grid-template-rows: repeat(4, auto);
   grid-gap: 5px;
   margin: 20px 0;
+  background-color: #000000;
 }
 
 .answerbtn {
@@ -75,7 +84,7 @@
   text-align: left;
   font-size: 25px;
 }
-  /* button {
+   button {
     background: radial-gradient(circle, rgba(240,230,140,1) 0%, rgba(187,96,33,0.9542191876750701) 100%);
     border-radius: 8px;
     color: #13293d;
@@ -83,7 +92,7 @@
     font-size: 2em;
     letter-spacing: 0.21px;
     line-height: 16px;
-    max-width: 255px;
+    max-width: 255x;
     padding: 20px 52px;
     text-align: center;
     transition-duration: 0.15s;
@@ -91,8 +100,9 @@
     transition-timing-function: linear;
     margin-top: 0.6em;
     align-items: center;
+    display: flex;
   }
-   */
+   
   header {
     padding: 40px;
     text-align: center;

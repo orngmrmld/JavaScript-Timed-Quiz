@@ -11,12 +11,12 @@ var startButton = document.querySelector(".start-button");
 var returnButton = document.querySelector("#go-back");
 var clearButton = document.querySelector("#clear-high-scores");
 var questionElement = document.getElementById("question");
-var answerButtons = document.getElementById("answer-buttons");
+var answerButtonsElement = document.getElementById("answer-buttons");
 var timerElement = document.querySelector(".timer-count");
 var timer;
 var timerCount;
 var mixedQuestions;
-var questionIndex= 0;
+var questionIndex =0;
 var score = 0;
 var timeleft;
 var gameover;
@@ -95,23 +95,26 @@ var timercheck = setInterval(function() {
 
 //Display a question from the array
 var  displayQuestion = function(index) {
+  var ansButton;
   questionElement.innerText = index.q;
   for (var i = 0; i <index.choices.length; i++){
-    var ansButton = document.createElement('button');
+    console.log(index.choices.length)
+    ansButton = document.createElement("button");
     console.log(ansButton);
     ansButton.innerText = index.choices[i].choice;
-    ansButton.classList.add('btn');
-    ansButton.classList.add('answerbtn');
+    ansButton.classList.add("btn");
+    ansButton.classList.add("answerbtn");
     ansButton.addEventListener("click", answerCheck);
-    ansButton.appendChild(answerButtons);
-
+    ansButton.appendChild(answerButtonsElement);
+    console.log(ansButton);
   }
+  console.log(answerButtonsElement.firstChild);
 };
 
 //reset answers by removing buttons 
 function resetAnswers(){
-  while(answerButtons.firstChild){
-    answerButtons.removeChild(answerButtons.firstChild());
+  while(answerButtonsElement.firstChild){
+    answerButtonsElement.removeChild(answerButtonsElement.firstChild);
   }
 }
 

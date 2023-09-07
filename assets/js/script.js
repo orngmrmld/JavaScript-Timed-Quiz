@@ -10,8 +10,13 @@ var incorrect = document.getElementById("incorrect");
 var startButton = document.querySelector(".start-button");
 var returnButton = document.querySelector("#go-back");
 var clearButton = document.querySelector("#clear-high-scores");
-
-// add question bank to replace in heaader every new question
+var questionElement = document.getElementById("question");
+var answerButtons = document.getElementById("answer-buttons");
+var timerElement = document.querySelector(".timer-count");
+var timer;
+var timerCount;
+var mixedQuestions;
+var questionIndex= 0;
 
 var questions = [
 
@@ -38,6 +43,69 @@ var questions = [
     },
   ];
 
+// The setTimer function starts and stops the timer and triggers winGame() and loseGame()
+function startTimer() {
+  // Sets timer
+  timer = setInterval(function() {
+    timerCount--;
+    timerElement.textContent = timerCount;
+    if (timerCount >= 0) {
+      // Tests if win condition is met
+      if (isWin && timerCount > 0) {
+        // Clears interval and stops timer
+        clearInterval(timer);
+        winGame();
+      }
+    }
+    // Tests if time has run out
+    if (timerCount === 0) {
+      // Clears interval
+      clearInterval(timer);
+      loseGame();
+    }
+  }, 1000);
+};
+
+//Display a question from the array
+function displayQuestion(index) {
+  questionElement.innerText = index.q;
+  for (var i = 0; i <index.choices.length; i++){
+    var answerBtn = document.createElement('button')
+    answerBtn.innerText = index.choices[i].choice;
+    answerBtn.classList.add('btn');
+    answerBtn.classList.add('answerbtn');
+    answerBtn.addEventListener("click", answerCheck);
+    answerBtn.appendChild(answerBtn);
+
+  }
+};
+
+//reset answers by removing buttons
+function resetAnswers(){
+  while(answerButtons.firstChild){
+    answerButtons.removeChild(answerButtons.firstChild());
+  }
+}
+
+//create questions 
+function createQuestions(){
+  resetAnswers();
+  displayQuestion(mixedQuestions[questionIndex]);
+};
+
+
+// check if the answer is right
+function answerCheck(event){
+  var selectedAns = event.target;
+  if(mixedQuestions[questionIndex].a === selectedAns.innerText){
+    //correctAns()
+    
+  }
+} 
+
+
+
+// display if correct or incorrect
 
 
 
@@ -58,22 +126,10 @@ var questions = [
 
 
 
-
-
-
-
-
-
-
-
-
-
-//var timerElement = document.querySelector(".timer-count");
 // var correctAnswers = [];
 // var incorrectAnswers = [];
 // var highScores = [];
-// var timer;
-// var timerCount;
+
 // var correctcounter = 0;
 // var incorrectcounter = 0;
 
@@ -105,28 +161,7 @@ var questions = [
 //   setIncorrect();
 // }
 
-// // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
-// function startTimer() {
-//   // Sets timer
-//   timer = setInterval(function() {
-//     timerCount--;
-//     timerElement.textContent = timerCount;
-//     if (timerCount >= 0) {
-//       // Tests if win condition is met
-//       if (isWin && timerCount > 0) {
-//         // Clears interval and stops timer
-//         clearInterval(timer);
-//         winGame();
-//       }
-//     }
-//     // Tests if time has run out
-//     if (timerCount === 0) {
-//       // Clears interval
-//       clearInterval(timer);
-//       loseGame();
-//     }
-//   }, 1000);
-// }
+
 
 
 // //updates correct answers on screen and sets correct count to client storage
